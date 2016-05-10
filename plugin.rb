@@ -26,6 +26,7 @@ class LDAPAuthenticator < ::Auth::Authenticator
     omniauth.provider :ldap,
       setup:  -> (env) {
         env["omniauth.strategy"].options.merge!(
+          title: "Swiss edu-ID Account",
           host: SiteSetting.ldap_hostname,
           port: SiteSetting.ldap_port,
           method: SiteSetting.ldap_method,
